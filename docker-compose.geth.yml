@@ -19,8 +19,8 @@ services:
     volumes:
       - ./caddy/:/etc/caddy/
     environment:
-      - ADMIN_USER=${ADMIN_USER:-eduadiez}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-eduadiez}
+      - ADMIN_USER=${ADMIN_USER:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
     restart: unless-stopped
     networks:
       - monitor-net
