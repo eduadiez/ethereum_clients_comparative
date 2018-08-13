@@ -8,7 +8,7 @@ services:
   ethchain:
     image: parity/parity:v1.11.8
     container_name: ethchain
-    command: --warp-barrier 5850000
+    command: --cache-size ${CACHE} --warp-barrier 6100000
     ports:
       - "30303:30303"
   caddy:
