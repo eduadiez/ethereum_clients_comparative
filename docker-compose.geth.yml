@@ -10,6 +10,7 @@ services:
     container_name: ethchain
     ports:
       - "30303:30303"
+    command: --cache=4028
   caddy:
     image: stefanprodan/caddy
     container_name: caddy
@@ -19,8 +20,8 @@ services:
     volumes:
       - ./caddy/:/etc/caddy/
     environment:
-      - ADMIN_USER=${ADMIN_USER:-eduadiez}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-eduadiez}
+      - ADMIN_USER=${ADMIN_USER:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
     restart: unless-stopped
     networks:
       - monitor-net

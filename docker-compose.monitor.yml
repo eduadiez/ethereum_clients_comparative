@@ -30,7 +30,13 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
-  
+    extra_hosts:
+      - "parity_2:${PARITY_2}"
+      - "geth_2:${GETH_2}"
+      - "parity_4:${PARITY_4}"
+      - "geth_4:${GETH_4}"
+      - "parity_4:${PARITY_6}"
+      - "geth_4:${GETH_6}"
   alertmanager:
     image: prom/alertmanager:v0.14.0
     container_name: alertmanager
@@ -76,7 +82,7 @@ services:
       - /var/run:/var/run:rw
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
-      #- /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
+      - /cgroup:/cgroup:ro #doesn't work on MacOS only for Linux
     restart: unless-stopped
     expose:
       - 8080

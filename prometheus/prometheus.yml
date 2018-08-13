@@ -17,8 +17,12 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['nodeexporter:9100']
-      - targets: ['geth:9100']
-      - targets: ['parity:9100']
+      - targets: ['geth_2:9100']
+      - targets: ['parity_2:9100']
+      - targets: ['geth_4:9100']
+      - targets: ['parity_4:9100']
+      - targets: ['geth_6:9100']
+      - targets: ['parity_6:9100']
     basic_auth:
       username: admin
       password: admin
@@ -27,8 +31,12 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['cadvisor:8080']
-      - targets: ['geth:8080']
-      - targets: ['parity:8080']
+      - targets: ['geth_2:8080']
+      - targets: ['parity_2:8080']
+      - targets: ['geth_4:8080']
+      - targets: ['parity_4:8080']
+      - targets: ['geth_6:8080']
+      - targets: ['parity_6:8080']
     basic_auth:
       username: admin
       password: admin
@@ -44,20 +52,9 @@ scrape_configs:
     static_configs:
       - targets: ['pushgateway:9091']
 
-
 alerting:
   alertmanagers:
   - scheme: http
     static_configs:
     - targets: 
       - 'alertmanager:9093'
-
-#  - job_name: 'nginx'
-#    scrape_interval: 10s
-#    static_configs:
-#      - targets: ['nginxexporter:9113']
-
-#  - job_name: 'aspnetcore'
-#    scrape_interval: 10s
-#    static_configs:
-#      - targets: ['eventlog-proxy:5000', 'eventlog:5000']
