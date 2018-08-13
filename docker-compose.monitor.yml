@@ -35,8 +35,8 @@ services:
       - "geth_2:${GETH_2}"
       - "parity_4:${PARITY_4}"
       - "geth_4:${GETH_4}"
-      - "parity_4:${PARITY_6}"
-      - "geth_4:${GETH_6}"
+      - "parity_6:${PARITY_6}"
+      - "geth_6:${GETH_6}"
   alertmanager:
     image: prom/alertmanager:v0.14.0
     container_name: alertmanager

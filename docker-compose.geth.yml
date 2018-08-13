@@ -10,7 +10,7 @@ services:
     container_name: ethchain
     ports:
       - "30303:30303"
-    command: --cache=4028
+    command: --cache=${CACHE}
   caddy:
     image: stefanprodan/caddy
     container_name: caddy
