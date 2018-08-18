@@ -4,6 +4,9 @@ networks:
   monitor-net:
     driver: bridge
 
+volumes:
+  data: {}
+
 services:
   ethchain:
     image: ethereum/client-go:${GETH_VERSION}
