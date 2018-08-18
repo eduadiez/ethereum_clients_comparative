@@ -6,7 +6,7 @@ networks:
 
 services:
   ethchain:
-    image: ethereum/client-go:v1.8.13
+    image: ethereum/client-go:${GETH_VERSION}
     container_name: ethchain
     ports:
       - "30303:30303"
