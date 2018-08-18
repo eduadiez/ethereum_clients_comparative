@@ -10,7 +10,10 @@ services:
     container_name: ethchain
     ports:
       - "30303:30303"
+      - "30303:30303/udp"
     command: --cache=${CACHE}
+    volumes:
+      - data:/root/.ethereum
   caddy:
     image: stefanprodan/caddy
     container_name: caddy

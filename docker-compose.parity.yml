@@ -4,13 +4,18 @@ networks:
   monitor-net:
     driver: bridge
 
+volumes:
+  data: {}
 services:
   ethchain:
-    image: parity/parity:v1.11.8
+    image: parity/parity:${PARITY_VERSION}
     container_name: ethchain
     command: --cache-size ${CACHE} --warp-barrier 6100000
     ports:
       - "30303:30303"
+      - "30303:30303/udp"
+    volumes:
+      - data:/root/.local/share/io.parity.ethereum/
   caddy:
     image: stefanprodan/caddy
     container_name: caddy
